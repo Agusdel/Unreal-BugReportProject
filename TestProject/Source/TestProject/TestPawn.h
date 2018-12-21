@@ -23,7 +23,16 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	
-	void RestoreGameFocus();
 
+protected:
+
+
+	class UUserWidget*  Cursor;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Widgets", meta = (DisplayName = "Cursor Widget"))
+	TSubclassOf<UUserWidget> CursorWidgetClass;
+
+	UUserWidget* CreateMouseCursorWidget();
+
+	void RestoreGameFocus();
 };
